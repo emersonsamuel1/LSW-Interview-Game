@@ -10,7 +10,7 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] internal PlayerInRange playerInRange;
     internal Vector2 direction;
     internal Rigidbody2D rb;
-    public float interactButton;
+    public bool interactButton;
     public float mouseClick;
 
 
@@ -32,8 +32,8 @@ public class PlayerInputs : MonoBehaviour
     {
         direction = playerControls.Land.Walking.ReadValue<Vector2>();
 
-        interactButton = playerControls.Land.Interact.ReadValue<float>();
-
+        interactButton = playerControls.Land.Interact.triggered;
+        
         mouseClick = playerControls.Chatting.SkipText.ReadValue<float>();
     }
 

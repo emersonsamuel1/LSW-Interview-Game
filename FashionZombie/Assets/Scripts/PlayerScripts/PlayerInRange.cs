@@ -14,7 +14,7 @@ public class PlayerInRange : MonoBehaviour
             {
                 return;
             }
-            else if(hit.collider.GetComponent<IInteractable>() != null && playerInputs.interactButton > 0)
+            else if(hit.collider.GetComponent<IInteractable>() != null && playerInputs.interactButton == true)
             {
                 interactable = hit.collider.GetComponent<IInteractable>();
 
