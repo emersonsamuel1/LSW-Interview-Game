@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606f8817bdcd9f442a0eb9ab9af12dad, type: 3}
   m_Name: ShopKeeper
   m_EditorClassIdentifier: 
-  speakerLeft: {fileID: 0}
-  speakerRight: {fileID: 0}
-  lines: []
+  speakerLeft: {fileID: 11400000, guid: e235fbbf2cff22545a5c265700f51dba, type: 2}
+  speakerRight: {fileID: 11400000, guid: 617a0597369367645b2fe663f98008a1, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: e235fbbf2cff22545a5c265700f51dba, type: 2}
+    text: Hey
+  - character: {fileID: 11400000, guid: 617a0597369367645b2fe663f98008a1, type: 2}
+    text: Yes
+  - character: {fileID: 11400000, guid: e235fbbf2cff22545a5c265700f51dba, type: 2}
+    text: No

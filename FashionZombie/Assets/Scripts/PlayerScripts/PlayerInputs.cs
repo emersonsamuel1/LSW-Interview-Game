@@ -14,6 +14,17 @@ public class PlayerInputs : MonoBehaviour
     public float mouseClick;
 
 
+    public void EnableControlsLand()
+    {
+        playerControls.Chatting.Disable();
+        playerControls.Land.Enable();
+    }
+
+    public void DisableControlsLand()
+    {
+        playerControls.Land.Disable();
+        playerControls.Chatting.Enable();
+    }
     void Awake()
     {
         playerControls = new PlayerControls();
@@ -33,7 +44,7 @@ public class PlayerInputs : MonoBehaviour
         direction = playerControls.Land.Walking.ReadValue<Vector2>();
 
         interactButton = playerControls.Land.Interact.triggered;
-        
+
         mouseClick = playerControls.Chatting.SkipText.ReadValue<float>();
     }
 

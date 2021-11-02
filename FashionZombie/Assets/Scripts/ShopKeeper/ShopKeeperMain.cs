@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShopKeeperMain : MonoBehaviour,IInteractable
 {   
+    public DialogDisplay dialogDisplay;
     [SerializeField]internal PlayerInRange playerInRange;
     [SerializeField]private float range;
     [SerializeField]private PlayerInputs playerInputs;
@@ -13,12 +14,13 @@ public class ShopKeeperMain : MonoBehaviour,IInteractable
     }
     void Start()
     {
-        
+    
     }
 
     public void Interact()
     {
-        GetComponent<IOpenCanvas>().IOpenCanvas();
+        dialogDisplay.AdvanceConversation();
+        playerInputs.DisableControlsLand();
     }
     void FixedUpdate()
     {

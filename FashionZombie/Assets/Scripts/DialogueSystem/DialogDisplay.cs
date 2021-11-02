@@ -14,7 +14,12 @@ public class DialogDisplay : MonoBehaviour
 
     private int activeLineIndex = 0;
 
+    private PlayerInputs playerInputs;
+
+private float time;
     private void Awake() {
+        playerInputs = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputs>();
+
         speakerUiLeft = speakerLeft.GetComponent<SpeakerUi>();
         speakerUiRight = speakerRight.GetComponent<SpeakerUi>();
 
@@ -24,10 +29,15 @@ public class DialogDisplay : MonoBehaviour
 
     void Update()
     {
-
+        if(playerInputs.mouseClick > 0 && time < Time.time)
+        {
+            playerInputs.DisableControlsLand();
+            AdvanceConversation();
+            time = Time.time + 1f;
+        }
     }
 
-    void AdvanceConversation()
+    public void AdvanceConversation() 
     {
         if(activeLineIndex < conversation.lines.Length)
         {
@@ -36,8 +46,10 @@ public class DialogDisplay : MonoBehaviour
         }
         else
         {
+            playerInputs.EnableControlsLand();
             speakerUiLeft.Hide();
             speakerUiRight.Hide();
+            activeLineIndex = 0;
         }
     }
 
@@ -60,5 +72,6 @@ public class DialogDisplay : MonoBehaviour
     {
         activeSpeakerUi.Dialog = text;  
         activeSpeakerUi.Show();
+        inactiveSpeakerUi.Hide();
     }
 }
