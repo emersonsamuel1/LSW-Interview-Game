@@ -7,31 +7,28 @@ public class ShopKeeperMain : MonoBehaviour,IInteractable
     [SerializeField]internal CheckDistancePlayer checkDistancePlayer;
     [SerializeField]private float maximumPlayerDistance;
     private CheckArea checkArea = new CheckArea();
-
     [SerializeField]private float range;
     [SerializeField]private bool inRange;
+    [SerializeField]private PlayerInputs playerInputs;
+    [SerializeField]internal PlayerInRange playerInRange;
 
+    private void Awake() {
+    playerInputs = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputs>();
+    playerInRange = GetComponent<PlayerInRange>();
+    }
     void Start()
     {
         
     }
 
-    void FixedUpdate()
-    {
-        CheckingArea();
-    }
-
-    void CheckingArea()
-    {
-       maximumPlayerDistance = checkDistancePlayer.Distance(transform.position); 
-
-       inRange = checkArea.CheckAreaPlayer(maximumPlayerDistance,range);
-    }
-
-
     public void Interact()
     {
+        Debug.Log("interagiu");
+    }
 
+    void FixedUpdate()
+    {
+        playerInRange.CheckingArea(range);
     }
 
     private void OnDrawGizmos() {

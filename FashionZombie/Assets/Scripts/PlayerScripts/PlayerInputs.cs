@@ -6,7 +6,6 @@ public class PlayerInputs : MonoBehaviour
 {
     private PlayerControls playerControls;
     [SerializeField] internal PlayerMovements playerMovement;
-    [SerializeField] internal PlayerInRange playerInRange;
 
     internal Vector2 direction;
 
