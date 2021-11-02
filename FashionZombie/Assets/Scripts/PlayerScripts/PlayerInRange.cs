@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class PlayerInRange : MonoBehaviour
 {
-    PlayerInputs playerInputs;
-    IInteractable interactable;
-    private void Awake() {
-        playerInputs = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputs>();
-        interactable = GetComponent<IInteractable>();
-    }
-    public virtual void CheckingArea(float range)
+    private IInteractable interactable;
+    [SerializeField]internal PlayerInputs playerInputs;
+    public virtual void CheckingArea(Vector2 facingDirection,float range)
     {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position,facingDirection,range);
+        if(hit.collider != null){
+            if (hit.collider.GetComponent<IInteractable>() == null)
+            {
+                return;
+            }
+            else if(hit.collider.GetComponent<IInteractable>() != null && playerInputs.interactButton > 0)
+            {
+                interactable = hit.collider.GetComponent<IInteractable>();
 
-       CheckDistancePlayer checkDistancePlayer = GetComponent<CheckDistancePlayer>();
-       CheckArea checkArea = new CheckArea();
+                interactable.Interact();
+            }
+        }
+        else
+        {
+            return;
+        }
+            
 
-       float _distance = checkDistancePlayer.Distance(transform.position); 
 
-       bool inRange = checkArea.CheckAreaPlayer(_distance,range);
-       
-       if(playerInputs.interactButton > 0 && inRange)
-       {
-           interactable.Interact();
-       }
     }
 }

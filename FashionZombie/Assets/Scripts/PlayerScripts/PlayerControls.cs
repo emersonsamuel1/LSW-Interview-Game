@@ -28,9 +28,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Interact"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""5e01fd79-16d3-4cb2-8041-09158d3e2303"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -103,6 +103,33 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Chatting"",
+            ""id"": ""6c979e85-658e-4782-8410-3f91a7bbb1fe"",
+            ""actions"": [
+                {
+                    ""name"": ""SkipText"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3bfa239-ed9e-471b-a5ad-360bd812ed7f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""85ec4324-1cc6-4604-a1f3-93529f84a60d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkipText"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -111,6 +138,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Land = asset.FindActionMap("Land", throwIfNotFound: true);
         m_Land_Walking = m_Land.FindAction("Walking", throwIfNotFound: true);
         m_Land_Interact = m_Land.FindAction("Interact", throwIfNotFound: true);
+        // Chatting
+        m_Chatting = asset.FindActionMap("Chatting", throwIfNotFound: true);
+        m_Chatting_SkipText = m_Chatting.FindAction("SkipText", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -197,9 +227,46 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public LandActions @Land => new LandActions(this);
+
+    // Chatting
+    private readonly InputActionMap m_Chatting;
+    private IChattingActions m_ChattingActionsCallbackInterface;
+    private readonly InputAction m_Chatting_SkipText;
+    public struct ChattingActions
+    {
+        private @PlayerControls m_Wrapper;
+        public ChattingActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @SkipText => m_Wrapper.m_Chatting_SkipText;
+        public InputActionMap Get() { return m_Wrapper.m_Chatting; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ChattingActions set) { return set.Get(); }
+        public void SetCallbacks(IChattingActions instance)
+        {
+            if (m_Wrapper.m_ChattingActionsCallbackInterface != null)
+            {
+                @SkipText.started -= m_Wrapper.m_ChattingActionsCallbackInterface.OnSkipText;
+                @SkipText.performed -= m_Wrapper.m_ChattingActionsCallbackInterface.OnSkipText;
+                @SkipText.canceled -= m_Wrapper.m_ChattingActionsCallbackInterface.OnSkipText;
+            }
+            m_Wrapper.m_ChattingActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @SkipText.started += instance.OnSkipText;
+                @SkipText.performed += instance.OnSkipText;
+                @SkipText.canceled += instance.OnSkipText;
+            }
+        }
+    }
+    public ChattingActions @Chatting => new ChattingActions(this);
     public interface ILandActions
     {
         void OnWalking(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IChattingActions
+    {
+        void OnSkipText(InputAction.CallbackContext context);
     }
 }
