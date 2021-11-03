@@ -42,6 +42,10 @@ public class PlayerAnimationManager : MonoBehaviour
         
     }
 
+    private void Start() {
+        activeState = playerState.Idle;
+    }
+
     private void StatesSwitch()
     {
         CheckingStates();
@@ -80,7 +84,6 @@ public class PlayerAnimationManager : MonoBehaviour
 
     private void CheckingStates()
     {
-        print(lastPosition);
         Vector2 current = playerInputs.direction;
         if(current != Vector2.zero) lastPosition = current;
 

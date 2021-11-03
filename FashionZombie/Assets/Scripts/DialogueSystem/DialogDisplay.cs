@@ -49,8 +49,9 @@ private float time;
         {
             Options.SetActive(true);
         }
-        else
+        else if(activeLineIndex == conversation.lines.Length + 1)
         {
+            Options.SetActive(false);
             playerInputs.EnableControlsLand();
             speakerUiLeft.Hide();
             speakerUiRight.Hide();
@@ -78,5 +79,11 @@ private float time;
         activeSpeakerUi.Dialog = text;  
         activeSpeakerUi.Show();
         inactiveSpeakerUi.Hide();
+    }
+
+    public void OnLeave()
+    {
+        activeLineIndex++;
+        AdvanceConversation();
     }
 }
