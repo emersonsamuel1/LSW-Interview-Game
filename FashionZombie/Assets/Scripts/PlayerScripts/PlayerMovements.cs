@@ -16,5 +16,6 @@ public class PlayerMovements : MonoBehaviour
         {
             playerInputs.rb.velocity = playerInputs.direction * speedPlayer;
         }
+        
     }
 }

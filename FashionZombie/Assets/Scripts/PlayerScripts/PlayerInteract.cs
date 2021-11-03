@@ -27,6 +27,6 @@ void CheckInteract()
 
 private void OnDrawGizmos() {
     Gizmos.color = Color.green;
-    Gizmos.DrawLine(transform.position,transform.up * range);
+    Gizmos.DrawLine(transform.position,transform.position + new Vector3(0,range,0));
 }
 }

@@ -39,6 +39,10 @@ public class PlayerInputs : MonoBehaviour
         playerControls.Disable();
     }
 
+    private void Start() {
+        EnableControlsLand();
+    }
+
     void Inputs()
     {
         direction = playerControls.Land.Walking.ReadValue<Vector2>();

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DialogDisplay : MonoBehaviour
 {
+    [SerializeField]private GameObject Options;
     public Conversation conversation;
 
     public GameObject speakerLeft;
@@ -33,7 +34,7 @@ private float time;
         {
             playerInputs.DisableControlsLand();
             AdvanceConversation();
-            time = Time.time + 1f;
+            time = Time.time + 0.5f;
         }
     }
 
@@ -43,6 +44,10 @@ private float time;
         {
             DisplayLine();
             activeLineIndex++;
+        }
+        else if(activeLineIndex == conversation.lines.Length)
+        {
+            Options.SetActive(true);
         }
         else
         {
