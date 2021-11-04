@@ -6,6 +6,9 @@ public class InventorySlot : MonoBehaviour
     Item item;
     public Image icon;
 
+    private void Awake() {
+        ClearSlot();    
+    }
     public void AddItem(Item newItem)
     {
         item = newItem;
@@ -27,7 +30,13 @@ public class InventorySlot : MonoBehaviour
         if(item != null)
         {
             item.Use();
-            ClearSlot();
+            
         }
     }
+
+    public void ReplaceItem(Item replaceItem)
+    {
+        item = replaceItem;
+    }
+
 }

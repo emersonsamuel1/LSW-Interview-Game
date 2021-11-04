@@ -16,8 +16,8 @@ MonoBehaviour:
   speakerRight: {fileID: 11400000, guid: 617a0597369367645b2fe663f98008a1, type: 2}
   lines:
   - character: {fileID: 11400000, guid: e235fbbf2cff22545a5c265700f51dba, type: 2}
-    text: Hey
+    text: 'Hey, so nice to see you again! My store has everything you need! '
   - character: {fileID: 11400000, guid: 617a0597369367645b2fe663f98008a1, type: 2}
-    text: Yes
+    text: Hii! I really do need some new clothes. Thanks!
   - character: {fileID: 11400000, guid: e235fbbf2cff22545a5c265700f51dba, type: 2}
-    text: No
+    text: What can I help you with?

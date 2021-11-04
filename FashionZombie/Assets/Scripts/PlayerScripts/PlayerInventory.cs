@@ -17,10 +17,9 @@ public class PlayerInventory : MonoBehaviour
     public delegate void  OnItemChanged();
     public OnItemChanged onItemChangedCallback;
     [SerializeField]private int inventorySpace;
-    internal List<Item> items = new List<Item>();
+    [SerializeField]internal List<Item> items = new List<Item>();
 
     [SerializeField]Dictionary<string,string> collectables = new Dictionary<string,string> ();
-    [SerializeField]GameObject InventoryUI;
 
     private void FixedUpdate() {
     }

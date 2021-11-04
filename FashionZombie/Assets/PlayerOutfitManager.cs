@@ -11,7 +11,8 @@ public class PlayerOutfitManager : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
 
-    [SerializeField]Item item;
+    [SerializeField]internal Item _item;
+    [SerializeField]internal Item lastItem;
 
     private void Awake() {
         spriteRenderer = transform.Find("Body").GetComponent<SpriteRenderer>();
@@ -20,7 +21,15 @@ public class PlayerOutfitManager : MonoBehaviour
     
     public void ChangeItem(Item currentItem)
     {
-        item = currentItem;
+        CheckLastItem(_item);
+        _item = currentItem;
+        playerInputs.playerInventory.RemoveFromInventory(_item);
+        playerInputs.playerInventory.AddToInventory(lastItem);
+    }
+
+    void CheckLastItem(Item _Item)
+    {
+        lastItem = _item;
     }
 
     private void Update() {
@@ -30,6 +39,9 @@ public class PlayerOutfitManager : MonoBehaviour
             spriteRenderer.sprite = bodySpriteBack;
             break;
             case PlayerAnimationManager.playerState.WalkingRight:
+            spriteRenderer.sprite = bodySpriteRight;
+            break;
+            case PlayerAnimationManager.playerState.WalkingLeft:
             spriteRenderer.sprite = bodySpriteRight;
             break;
             case PlayerAnimationManager.playerState.WalkingFront:
@@ -45,7 +57,7 @@ public class PlayerOutfitManager : MonoBehaviour
             spriteRenderer.sprite = bodySpriteRight;
             break;
             case PlayerAnimationManager.playerState.BackIdle:
-            spriteRenderer.sprite = bodySpriteRight;
+            spriteRenderer.sprite = bodySpriteBack;
             break;
 
         }
@@ -57,16 +69,16 @@ public class PlayerOutfitManager : MonoBehaviour
 
     Sprite ChangeSpriteFront()
     {
-        return item.Bodyfront;
+        return _item.Bodyfront;
     }
 
     Sprite ChangeSpriteBack()
     {
-        return item.Bodyback;
+        return _item.Bodyback;
     }
 
     Sprite ChangeSpriteRight()
     {
-        return item.Bodyright;
+        return _item.Bodyright;
     }
 }

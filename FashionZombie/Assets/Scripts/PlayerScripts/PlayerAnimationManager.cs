@@ -31,7 +31,6 @@ public class PlayerAnimationManager : MonoBehaviour
     const string leftIdle = "LeftIdle";
     const string backIdle = "BackIdle";
     internal playerState activeState;
-
     private Vector2 lastPosition;
 
     private void Awake() {
@@ -49,8 +48,8 @@ public class PlayerAnimationManager : MonoBehaviour
     }
 
     private void StatesSwitch()
-    {
-        CheckingStates();
+    {   
+            CheckingStates();
            switch(activeState)
         {
             case playerState.WalkingLeft:
@@ -142,7 +141,7 @@ public class PlayerAnimationManager : MonoBehaviour
         }
     }
 
-    private void ChangeAnimationState(string stateName)
+    public void ChangeAnimationState(string stateName)
     {
         animator.Play(stateName);
     }

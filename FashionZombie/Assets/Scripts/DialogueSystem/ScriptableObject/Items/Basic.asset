@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Basic
   m_EditorClassIdentifier: 
   name: Basic
-  icon: {fileID: 0}
-  Bodyfront: {fileID: 0}
-  Bodyright: {fileID: 0}
-  Bodyback: {fileID: 0}
+  icon: {fileID: -377369761331565574, guid: f970b19f750a9f049852d2b01d8e32c6, type: 3}
+  Bodyfront: {fileID: 8122468638582098407, guid: d49ed686033138745beb37d67413cdb0, type: 3}
+  Bodyright: {fileID: -2167412124912120394, guid: 3434aa15a557522438996729b9b7ccd7, type: 3}
+  Bodyback: {fileID: -377369761331565574, guid: f970b19f750a9f049852d2b01d8e32c6, type: 3}
