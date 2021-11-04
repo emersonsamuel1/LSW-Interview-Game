@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ca3ddd2b6fc2f43b83d7460e5222ea, type: 3}
   m_Name: ShopKeeper
   m_EditorClassIdentifier: 
-  fullName: 
-  portrait: {fileID: 0}
+  fullName: ShopKeeper
+  portrait: {fileID: 5748719201930558439, guid: 54f3707e81ffc5d4395afc87a06cb356, type: 3}

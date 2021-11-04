@@ -7,15 +7,10 @@ public class PlayerTrigger : MonoBehaviour
     [SerializeField]internal PlayerInputs playerInputs;
 
     private void OnTriggerStay2D(Collider2D other) {
-        ItemWorld item = other.GetComponent<ItemWorld>();
-        if(item != null && playerInputs.interactButton)
+        IPickable ipickable = other.GetComponent<IPickable>();
+        if(ipickable != null && playerInputs.interactButton)
         {
-            playerInputs.playerInventory.inventory.AddItem(item.GetItem());
-            item.DestroySelf();
-        }
-        else
-        {
-            return;
+            ipickable.Picked();
         }
     }
 }

@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ca3ddd2b6fc2f43b83d7460e5222ea, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: a8e6557bed69c1d468cdbdaea7675eb1, type: 3}
+  m_Name: Basic
   m_EditorClassIdentifier: 
-  fullName: Mike
-  portrait: {fileID: 8197660497415415108, guid: f970b19f750a9f049852d2b01d8e32c6, type: 3}
+  name: Basic
+  icon: {fileID: 0}
+  Bodyfront: {fileID: 0}
+  Bodyright: {fileID: 0}
+  Bodyback: {fileID: 0}

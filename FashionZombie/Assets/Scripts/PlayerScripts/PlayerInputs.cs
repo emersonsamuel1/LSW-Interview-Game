@@ -10,6 +10,8 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] internal PlayerInRange playerInRange;
     [SerializeField] internal PlayerInventory playerInventory;
     [SerializeField] internal PlayerTrigger playerTrigger;
+    [SerializeField] internal PlayerOutfitManager playerOutfitManager;
+    [SerializeField]internal PlayerAnimationManager playerAnimationManager;
     internal Vector2 direction;
     internal Rigidbody2D rb;
     public bool interactButton;

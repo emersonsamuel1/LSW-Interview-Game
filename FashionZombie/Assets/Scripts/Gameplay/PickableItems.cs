@@ -2,21 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickableItems : MonoBehaviour
+public class PickableItems : MonoBehaviour,IPickable
 {
-    private Item item;
-    void Start()
-    {
-     //item.itemType  
-    }
-
-    void Update()
-    {
-        
-    }
-
+    [SerializeField]private Item item;
     public void Picked()
     {
+        bool wasPickedUp =PlayerInventory.instance.AddToInventory(item);
 
+        if(wasPickedUp) Destroy(gameObject);
     }
 }

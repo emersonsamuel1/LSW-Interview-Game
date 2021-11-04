@@ -1,4 +1,5 @@
+using UnityEngine;
 public interface IPickable
 {
-    public void Picked(Inventory inventory);
+    public void Picked();
 }
