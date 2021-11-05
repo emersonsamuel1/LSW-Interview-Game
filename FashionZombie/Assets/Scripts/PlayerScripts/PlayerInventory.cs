@@ -18,11 +18,6 @@ public class PlayerInventory : MonoBehaviour
     public OnItemChanged onItemChangedCallback;
     [SerializeField]private int inventorySpace;
     [SerializeField]internal List<Item> items = new List<Item>();
-
-    [SerializeField]Dictionary<string,string> collectables = new Dictionary<string,string> ();
-
-    private void FixedUpdate() {
-    }
     public bool AddToInventory(Item item)
     {
         if(items.Count >= inventorySpace) {

@@ -34,9 +34,4 @@ public class InventorySlot : MonoBehaviour
         }
     }
 
-    public void ReplaceItem(Item replaceItem)
-    {
-        item = replaceItem;
-    }
-
 }

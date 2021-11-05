@@ -12,6 +12,5 @@ public class Item : ScriptableObject
     public virtual void Use()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputs>().playerOutfitManager.ChangeItem(this);
-        Debug.Log("Using "+ name);
     }
 }

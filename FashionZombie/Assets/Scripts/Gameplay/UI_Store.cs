@@ -6,13 +6,11 @@ using TMPro;
 
 public class UI_Store : MonoBehaviour
 {
-    public int[] setPrices;
-
-    [SerializeField]Transform[] priceObjects;
     GameController gameController;
     PlayerInputs playerInputs;
     int currentMoney;
     Item getItem;
+    int moneyAdded;
     private void Awake() {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         playerInputs = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputs>();
@@ -37,7 +35,18 @@ public class UI_Store : MonoBehaviour
 
     public void OnSold(int i)
     {
-        gameController.AddMoney(i);
+        moneyAdded = i;
+    }
+
+    public void GetSellItemInventory(Item i)
+    {
+        
+        if(playerInputs.playerInventory.items.Find(item => item == i))
+        {
+            gameController.AddMoney(moneyAdded);
+           playerInputs.playerInventory.RemoveFromInventory(playerInputs.playerInventory.items.Find(Item => Item == i));
+           playerInputs.playerInventory.onItemChangedCallback.Invoke();
+        }
     }
 
     public void ExitButton()
