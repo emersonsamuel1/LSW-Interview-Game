@@ -6,14 +6,14 @@ public class UI_Inventory : MonoBehaviour
 {
     [SerializeField]private Transform itemsParent;
     InventorySlot[] inventorySlots;
-    PlayerInventory playerInventory;
+    PlayerInputs playerInputs;
 
     private void Awake() {
-        playerInventory = PlayerInventory.instance;
+        playerInputs = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputs>();
     }
 
     private void Start() {
-        playerInventory.onItemChangedCallback += UpdateUI;
+        playerInputs.playerInventory.onItemChangedCallback += UpdateUI;
 
         inventorySlots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
@@ -22,9 +22,9 @@ public class UI_Inventory : MonoBehaviour
     {
         for(int i = 0; i < inventorySlots.Length; i++)
         {
-            if(i < playerInventory.items.Count)
+            if(i < playerInputs.playerInventory.items.Count)
             {
-                inventorySlots[i].AddItem(playerInventory.items[i]);
+                inventorySlots[i].AddItem(playerInputs.playerInventory.items[i]);
             }
             else
             {

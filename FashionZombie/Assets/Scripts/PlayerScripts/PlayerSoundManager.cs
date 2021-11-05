@@ -17,10 +17,19 @@ public class PlayerSoundManager : MonoBehaviour
     {
     }
 
+    public void PlayVoice()
+    {
+        audiosource.clip = audioClips[1];
+        audiosource.pitch = Random.Range(0.8f,1.2f);
+        audiosource.Play();
+    }
+
     public void PlayWalkingSound()
     {
             audiosource.clip = audioClips[0];
             audiosource.pitch = Random.Range(0.8f,1.2f);
             audiosource.Play();
     }
+
+
 }

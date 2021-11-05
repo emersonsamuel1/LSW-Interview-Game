@@ -114,8 +114,10 @@ MonoBehaviour:
   playerTrigger: {fileID: 1912248660966254276}
   playerOutfitManager: {fileID: 2005444910}
   playerAnimationManager: {fileID: 1912248660966254274}
+  playerSoundManager: {fileID: 0}
   interactButton: 0
   mouseClick: 0
+  esc: 0
 --- !u!114 &1912248660966254281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9cd081748b3e8499a5fbba72184cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   inventorySpace: 4
   items: []
 --- !u!114 &1912248660966254274
@@ -251,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 126a2054164470642be70b7341097312, type: 3}
+  - {fileID: 8300000, guid: d2dd3be3f8cecd547a9dbc3153d43580, type: 3}
   audiosource: {fileID: 184040752311419896}
   playerInputs: {fileID: 1912248660966254280}
 --- !u!82 &184040752311419896

@@ -12,10 +12,13 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] internal PlayerTrigger playerTrigger;
     [SerializeField] internal PlayerOutfitManager playerOutfitManager;
     [SerializeField]internal PlayerAnimationManager playerAnimationManager;
+    [SerializeField]internal PlayerSoundManager playerSoundManager;
     internal Vector2 direction;
     internal Rigidbody2D rb;
     public bool interactButton;
     public float mouseClick;
+
+    public bool esc;
 
 
     public void EnableControlsLand()
@@ -51,9 +54,11 @@ public class PlayerInputs : MonoBehaviour
     {
         direction = playerControls.Land.Walking.ReadValue<Vector2>();
 
-       interactButton = playerControls.Land.Interact.ReadValue<float>() > 0;
+       interactButton = playerControls.Land.Interact.triggered;
 
         mouseClick = playerControls.Chatting.SkipText.ReadValue<float>();
+
+        esc = playerControls.Land.Pause.triggered;
     }
     
 

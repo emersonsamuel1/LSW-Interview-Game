@@ -45,7 +45,7 @@ public class UI_Store : MonoBehaviour
         {
             gameController.AddMoney(moneyAdded);
            playerInputs.playerInventory.RemoveFromInventory(playerInputs.playerInventory.items.Find(Item => Item == i));
-           playerInputs.playerInventory.onItemChangedCallback.Invoke();
+           if(playerInputs.playerInventory.onItemChangedCallback != null)playerInputs.playerInventory.onItemChangedCallback.Invoke();
         }
     }
 

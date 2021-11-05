@@ -5,6 +5,8 @@ using UnityEngine;
 public class PickableItems : MonoBehaviour,IPickable
 {
     [SerializeField]private Item item;
+    private void Awake() {
+    }
     public void Picked()
     {
         bool wasPickedUp =PlayerInventory.instance.AddToInventory(item);

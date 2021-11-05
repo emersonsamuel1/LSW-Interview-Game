@@ -54,6 +54,7 @@ private float time;
     {
         if(activeLineIndex < conversation.lines.Length)
         {
+            playerInputs.playerSoundManager.PlayVoice();
             DisplayLine();
             activeLineIndex++;
         }

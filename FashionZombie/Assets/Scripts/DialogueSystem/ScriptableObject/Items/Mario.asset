@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mario
   icon: {fileID: -8928375458570960171, guid: f6c0eadc5b592b44a96dc5085a29e5b5, type: 3}
+  mySelf: {fileID: 6008783975432559255, guid: bba9027094bdb2e4eb9f08e2dc994c49, type: 3}
   Bodyfront: {fileID: -8928375458570960171, guid: f6c0eadc5b592b44a96dc5085a29e5b5, type: 3}
   Bodyright: {fileID: -4675163897497162666, guid: f6c0eadc5b592b44a96dc5085a29e5b5, type: 3}
   Bodyback: {fileID: 535174543392169480, guid: f6c0eadc5b592b44a96dc5085a29e5b5, type: 3}
