@@ -8,7 +8,7 @@ public class PlayerInteract : MonoBehaviour
 [SerializeField]private float range;
 private Vector2 savePosition;
 
-private void FixedUpdate() {
+private void Update() {
     CheckInteract();
 }
 Vector2 CheckDirection()
@@ -27,6 +27,6 @@ void CheckInteract()
 
 private void OnDrawGizmos() {
     Gizmos.color = Color.green;
-    Gizmos.DrawLine(transform.position,transform.position + new Vector3(0,range,0));
+    Gizmos.DrawLine(playerInputs.playerInRange.bodyTransform.position,playerInputs.playerInRange.bodyTransform.position + new Vector3(0,range,0));
 }
 }

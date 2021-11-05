@@ -16,6 +16,7 @@ public class DialogDisplay : MonoBehaviour
     private int activeLineIndex = 0;
 
     private PlayerInputs playerInputs;
+    bool canAdvance = true;
 
 private float time;
     private void Awake() {
@@ -35,8 +36,19 @@ private float time;
             playerInputs.DisableControlsLand();
             AdvanceConversation();
             time = Time.time + 0.5f;
+            canAdvance = true;
         }
     }
+
+    public void AdvanceConversationOnlyOnce()
+        {
+            if(canAdvance)
+            {
+                AdvanceConversation();
+                canAdvance = false;
+                time = Time.time + 0.5f;
+            }
+        }
 
     public void AdvanceConversation() 
     {

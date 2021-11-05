@@ -51,12 +51,14 @@ public class PlayerInputs : MonoBehaviour
     {
         direction = playerControls.Land.Walking.ReadValue<Vector2>();
 
-        interactButton = playerControls.Land.Interact.triggered;
+       interactButton = playerControls.Land.Interact.triggered;
+
 
         mouseClick = playerControls.Chatting.SkipText.ReadValue<float>();
     }
+    
 
-    void Update()
+    void FixedUpdate()
     {
         Inputs();
     }

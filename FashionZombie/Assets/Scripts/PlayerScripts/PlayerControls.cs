@@ -120,7 +120,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""85ec4324-1cc6-4604-a1f3-93529f84a60d"",
+                    ""id"": ""7acee2da-13a7-4cbb-861e-0c3f2198268e"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",

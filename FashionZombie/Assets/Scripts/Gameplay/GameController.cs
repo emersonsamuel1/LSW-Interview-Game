@@ -4,14 +4,19 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
     public TextMeshProUGUI textMeshProUGUI;
-    [SerializeField]private int money;
+    public int money;
     void Start()
     {
         
     }
 
-    void AddMoney(int addedMoney){
+    public void AddMoney(int addedMoney){
         money += addedMoney;
+    }
+
+    public void TakeMoney(int takenMoney)
+    {
+        money -= takenMoney;
     }
 
     private void Update() {

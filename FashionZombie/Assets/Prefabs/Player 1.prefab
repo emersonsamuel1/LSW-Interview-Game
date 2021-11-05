@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c58a19afc1681743ab319cc623cf466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyTransform: {fileID: 1912248661991253933}
   playerInputs: {fileID: 1912248660966254280}
 --- !u!114 &1912248660966254278
 MonoBehaviour:
@@ -181,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySpace: 4
-  InventoryUI: {fileID: 0}
+  items: []
 --- !u!114 &1912248660966254274
 MonoBehaviour:
   m_ObjectHideFlags: 0

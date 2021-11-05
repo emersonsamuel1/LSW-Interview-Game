@@ -17,8 +17,8 @@ public class ShopKeeperMain : MonoBehaviour,IInteractable
 
     public void Interact()
     {
-        dialogDisplay.AdvanceConversation();
         playerInputs.DisableControlsLand();
+        dialogDisplay.AdvanceConversationOnlyOnce();
     }
     void FixedUpdate()
     {
