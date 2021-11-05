@@ -60,12 +60,12 @@ private float time;
         }
         else if(activeLineIndex == conversation.lines.Length)
         {
+            playerInputs.DisableControlsChatting();
             Options.SetActive(true);
         }
         else if(activeLineIndex == conversation.lines.Length + 1)
         {
             Options.SetActive(false);
-            playerInputs.EnableControlsLand();
             speakerUiLeft.Hide();
             speakerUiRight.Hide();
             activeLineIndex = 0;
@@ -95,6 +95,12 @@ private float time;
     }
 
     public void OnLeave()
+    {
+        playerInputs.EnableControlsLand();
+        activeLineIndex++;
+        AdvanceConversation();
+    }
+        public void OnLeaveToShop()
     {
         activeLineIndex++;
         AdvanceConversation();

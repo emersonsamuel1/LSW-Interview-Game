@@ -61,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_Size: {x: 0.375, y: 0.6875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &6996032805561273191
@@ -156,8 +156,12 @@ MonoBehaviour:
   playerInRange: {fileID: 6996032805561273189}
   playerInventory: {fileID: 688715132}
   playerTrigger: {fileID: 688715122}
+  playerOutfitManager: {fileID: 0}
+  playerAnimationManager: {fileID: 0}
+  playerSoundManager: {fileID: 0}
   interactButton: 0
   mouseClick: 0
+  esc: 0
 --- !u!114 &6996032805561273185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c58a19afc1681743ab319cc623cf466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyTransform: {fileID: 0}
   playerInputs: {fileID: 6996032805561273190}
 --- !u!95 &5882981540350728670
 Animator:
@@ -195,7 +200,7 @@ Animator:
   m_GameObject: {fileID: 6996032805561273187}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 066a21c80319d8a4cab428c196887194, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -258,5 +263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9cd081748b3e8499a5fbba72184cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiInventory: {fileID: 0}
-  playerInputs: {fileID: 6996032805561273190}
+  audioManager: {fileID: 0}
+  inventorySpace: 0
+  items: []

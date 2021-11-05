@@ -32,7 +32,7 @@ public class InventorySlot : MonoBehaviour
          
     }
 
-        public void ClearSlotButton()
+        public void ClearSlotButton ()
     {
         PlayerInputs playerInputs = player.GetComponent<PlayerInputs>();
         playerInputs.playerInventory.RemoveFromInventory(item);
@@ -41,7 +41,6 @@ public class InventorySlot : MonoBehaviour
         icon.sprite = null;
         icon.enabled = false;
         X.interactable = false;
-         
     }
 
     public void UseItem()

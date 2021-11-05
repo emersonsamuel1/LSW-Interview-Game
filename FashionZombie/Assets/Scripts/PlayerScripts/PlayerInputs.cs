@@ -32,6 +32,14 @@ public class PlayerInputs : MonoBehaviour
         playerControls.Land.Disable();
         playerControls.Chatting.Enable();
     }
+
+    public void EnableControlsChatting(){
+        playerControls.Chatting.Enable();
+    }
+
+       public void DisableControlsChatting(){
+        playerControls.Chatting.Disable();
+    }
     void Awake()
     {
         playerControls = new PlayerControls();

@@ -45,12 +45,13 @@ public class UI_Store : MonoBehaviour
         {
             gameController.AddMoney(moneyAdded);
            playerInputs.playerInventory.RemoveFromInventory(playerInputs.playerInventory.items.Find(Item => Item == i));
-           if(playerInputs.playerInventory.onItemChangedCallback != null)playerInputs.playerInventory.onItemChangedCallback.Invoke();
+           playerInputs.playerInventory.onItemChangedCallback.Invoke();
         }
     }
 
     public void ExitButton()
     {
+        playerInputs.EnableControlsLand();
         this.gameObject.SetActive(false);
     }
 

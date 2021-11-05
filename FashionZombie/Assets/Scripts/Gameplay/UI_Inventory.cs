@@ -10,16 +10,18 @@ public class UI_Inventory : MonoBehaviour
 
     private void Awake() {
         playerInputs = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputs>();
+
+                playerInputs.playerInventory.onItemChangedCallback += UpdateUI;
     }
 
     private void Start() {
-        playerInputs.playerInventory.onItemChangedCallback += UpdateUI;
 
         inventorySlots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
 
     public void UpdateUI()
     {
+        print("chamou");
         for(int i = 0; i < inventorySlots.Length; i++)
         {
             if(i < playerInputs.playerInventory.items.Count)

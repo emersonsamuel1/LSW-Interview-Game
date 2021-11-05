@@ -37,6 +37,12 @@ public class PlayerInventory : MonoBehaviour
     }
     public void RemoveFromInventory(Item item)
     {
+        print("removeu");
         items.Remove(item);
+    }
+
+        public void RemoveFromInventory(int i)
+    {
+        items.RemoveAt(i);
     }
 }
